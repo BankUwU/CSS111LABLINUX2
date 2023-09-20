@@ -1,0 +1,49 @@
+Lab CSS111 Continue
+
+**Command Line ข้อ 1**
+
+**cd ~**
+> เปลี่ยน directory ไปที่ home
+
+**cp /etc/passwd pw**
+> ก๊อปไฟล์ passwd แล้วเปลี่ยนชื่อเป็น pw
+
+**cat pw pw > two**
+> add ไฟล์ two เข้ามาแล้วเอา pw ยัดเข้าไป 2 ไฟล์
+
+**cat two**
+> แสดงจำนวนไฟล์ในไฟล์ two (ต้องมีซ้ำ 2 ครั้งถึงจะถูกเพราะเรายัดไฟล์ pw เข้าไปในไฟล์ two 2 ไฟล์)
+
+**Command Line ข้อ 2 **
+
+**cat /etc/nanorc**
+> ดูเนื้อหาไฟล์ /etc/nanorc
+
+**grep 'white' /etc/nanorc > white**
+> เอาแค่บรรทัดที่มีคำว่า white แล้วยัดเข้าไฟล์ที่ชื่อว่า white(ไฟล์สร้างใหม่)
+
+**Error ข้อ2 ที่ส่วนใหญ่จะเจอกัน**
+*ถ้าขึ้นว่าหาไฟล์ไม่เจอจากข้อ 1 
+1. ให้ cd .. กลับมาที่ directory หลักก่อน 
+2. cd etc (directory ที่ไฟล์ nanorc ควรจะอยู่) 
+3. dir ถ้า nanorc ไม่อยู่บน list ให้ apt install -y gcc nano ก่อนจะแก้ error ได้
+
+**cat white** 
+> เช็คว่าแสดงไฟล์ได้มั้ย
+
+**mv white rc**
+> เปลี่ยนชื่อจาก white เป็น rc
+
+**grep -E 'red|cyan' rc**
+> จากไฟล์ rc filter แค่คำว่า red กับ cyan
+> -E คือการเลือกหลายค่า เช่น red|green , red|black etc... แบบนี้
+> 
+
+**Command line ข้อ 3**
+
+**sort -k3nr -t: /etc/passwd**
+> -k3 ดูค่าที่ column 3 
+> n เช็คค่าตัวเลข(เหมือน default จะเป็นเรียงจากน้อยไปมากมั้ง)
+> r reverse ทำให้เป็นมากไปน้อย (โจทย์ต้องการเรียงแบบ descending)
+> -t: เอาตัวที่บอกว่าตัวแบ่ง column เป็น :
+> จะเรียงสลับกันยังไงก็ได้นะถ้าพิมพ์เป็น sort -t: -k3nr  /etc/passwd อย่างนี้ก็ได้เหมือนกัน
